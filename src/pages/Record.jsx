@@ -2,6 +2,8 @@ import React, { useEffect, useContext, useState } from 'react'
 
 // required component
 import Alert from '../components/Alert';
+import Navbar from '../components/Navbar'
+import Footer from '../components/Footer'
 
 // importing the required context
 import recordContext from '../context/records/recordContext'
@@ -46,9 +48,11 @@ export default function Record() {
   return (
     <div className="flex flex-col items-center xsz:gap-3">
 
+
       {/* First heading element */}
       <div className="z-10 bg-linear-150 from-bgFirst to-bgSecond flex flex-col xsz:gap-1 2xl:gap-3 justify-center w-full items-center lg:pt-22 xl:pt-26 xl:pb-18  xsz:p-10 sm:py-14 md:pt-18 2xl:pb-20 2xl:pt-32">
 
+      <Navbar />
         <Alert />
 
         {/* main header here */}
@@ -107,7 +111,7 @@ export default function Record() {
                 <button className="xsz:text-sm lg:text-base font-poppins font-semibold text-white xsz:px-2 xsz:py-1 md:px-3 lg:py-2 xsz:rounded-md hover:rounded-lg hover:scale-105 ease-in duration-100 bg-secondary/90 cursor-pointer active:scale-95" onClick={() => openModal(record)}> View Details </button>
 
                 {isModalOpen && selectedRecord && (
-                    <div className="fixed bg-black/50 flex justify-center items-center z-20 bg-white xsz:rounded-md lg:rounded-lg shadow xsz:shadow-md lg:shadow-lg xsz:top-40 xl:top-50 left-10 right-10 sm:left-20 sm:right-20 xl:left-30 xl:right-30">
+                    <div className="fixed flex justify-center items-center z-20 bg-white xsz:rounded-md lg:rounded-lg shadow xsz:shadow-md lg:shadow-lg xsz:top-40 xl:top-50 left-10 right-10 sm:left-20 sm:right-20 xl:left-30 xl:right-30">
 
                         <div className="flex flex-col justify-start items-start xsz:gap-3 xl:gap-5 xsz:p-3 sm:py-4">
 
@@ -158,6 +162,8 @@ export default function Record() {
         }
 
       </div>
+
+      <Footer />
 
     </div>
   )

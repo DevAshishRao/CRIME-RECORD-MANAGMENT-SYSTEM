@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import { Lock } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import { useNavigate } from 'react-router-dom'
 
@@ -37,13 +38,14 @@ export default function Navbar() {
             {/* Site Name and ImageIcon/Logo */}
             <Link to="/">
                 <div className="flex flex-row items-center xsz:gap-2 cursor-pointer">
-                    <h3 className="font-poppins md:text-lg xsz:font-semibold text-shade1 xl:text-xl"> Portfolio Maker </h3>
+                    <Lock className="text-shade1 xsz:w-5 xsz:h-5 sm:w-6 sm:h-6 xl:w-7 xl:h-7" />
+                    <h3 className="font-poppins md:text-lg xsz:font-semibold text-shade1 xl:text-xl"> CRMS </h3>
                 </div>
             </Link>
 
             <div className="menuList flex xsz:flex-col md:flex-row items-center md:gap-3 xl:gap-6 font-poppins text-secondary/90 xsz:text-sm lg:text-base font-semibold xsz:absolute top-0 left-0 right-0 xsz:pt-10 xsz:pb-4 xsz:gap-2 xsz:bg-white md:bg-transparent xsz:shadow-md md:shadow-none md:relative md:p-0 xsz:-translate-y-90 md:translate-0 ease-in-out duration-400">
                 <Link to="/records" className="hover:underline hover:underline-offset-8 hover:text-shade1 ease-in duration-150"> Records </Link>
-                <Link to="/" className="hover:underline hover:underline-offset-8 hover:text-shade1 ease-in duration-150"> Get Started </Link>
+                <Link to="/signup" className="hover:underline hover:underline-offset-8 hover:text-shade1 ease-in duration-150"> Get Started </Link>
                 <button className={`${user ? 'hidden' : ''} md:hidden hover:underline hover:underline-offset-8 hover:text-shade1 ease-in duration-150`} onClick={() => { navigate('/login') }}> Log In </button>
                 <button className={`${user ? 'hidden' : ''} md:hidden hover:underline hover:underline-offset-8 hover:text-shade1 ease-in duration-150`} onClick={() => { navigate('/signup') }}> Sign Up </button>
                 <button className={`${user ? '' : 'hidden'} md:hidden hover:underline hover:underline-offset-8 hover:text-shade1 ease-in duration-150`} onClick={logOut}> Logout </button>

@@ -4,6 +4,8 @@ import Alert from '../components/Alert';
 import alertContext from '../context/alert/alertContext';
 import recordContext from '../context/records/recordContext'
 import { useNavigate } from 'react-router-dom';
+import Navbar from '../components/Navbar'
+import Footer from '../components/Footer'
 
 export default function UserProfile() {
 
@@ -12,7 +14,7 @@ export default function UserProfile() {
 
     // context for showing alert
     const { showAlert } = useContext(alertContext);
-    const { records, getUserRecords, deleteRecord, createRecord } = useContext(recordContext)
+    const { records, getUserRecords, deleteRecord, createRecord, updateRecord } = useContext(recordContext)
 
     // object for storing user details
     const [userDetails, setUserDetails] = useState({
@@ -102,39 +104,38 @@ export default function UserProfile() {
         <Alert />
 
         <div className="z-10 bg-linear-150 from-bgFirst to-bgSecond flex flex-col xsz:gap-1 2xl:gap-3 justify-center w-full items-center lg:pt-22 xl:pt-26 xl:pb-18  xsz:p-14 sm:py-14 md:pt-18 2xl:pb-20 2xl:pt-32">
+        <Navbar />
           <div className="flex xsz:flex-col sm:flex-row justify-between items-center xsz:gap-5 md:gap-8 lg:gap-10">
             <User className="text-white bg-secondary/40 xsz:w-30 xsz:h-30 md:w-40 md:h-40 xsz:p-4 md:p-5 rounded-full" />
             <div className="flex flex-col justify-center items-start xsz:gap-3 lg:gap-5">
               <h1 className="font-poppins font-semibold xsz:text-xl text-white sm:text-2xl md:text-3xl xl:text-4xl">
-                {" "}
                 {userDetails.username &&
-                  capitalizeFirstLetter(userDetails.username)}{" "}
+                  capitalizeFirstLetter(userDetails.username)}
               </h1>
 
               <div className="flex xsz:flex-col sm:flex-row sm:justify-center xsz:items-start sm:items-center xsz:gap-4 sm:gap-6 lg:gap-8">
                 <div className="flex flex-col xsz:gap-1 justify-start items-start">
                   <h3 className="xsz:text-[12px] md:text-sm font-poppins font-semibold text-white/70">
-                    {" "}
-                    Full Name{" "}
+                    Full Name
                   </h3>
                   <h3 className="xsz:text-sm md:text-base font-poppins font-semibold text-white/80">
-                    {" "}
+                    
                     {userDetails.fullName
                       ? userDetails.fullName &&
                         capitalizeFirstLetter(userDetails.fullName)
-                      : "Unavailable"}{" "}
+                      : "Unavailable"}
                   </h3>
                 </div>
 
                 <div className="flex flex-col xsz:gap-1 justify-start items-start">
                   <h3 className="xsz:text-[12px] md:text-sm font-poppins font-semibold text-white/70">
-                    {" "}
-                    Category{" "}
+                    
+                    Category
                   </h3>
                   <h3 className="xsz:text-sm md:text-base font-poppins font-semibold text-white/80">
-                    {" "}
+                    
                     {userDetails.category &&
-                      capitalizeFirstLetter(userDetails.category)}{" "}
+                      capitalizeFirstLetter(userDetails.category)}
                   </h3>
                 </div>
 
@@ -159,57 +160,57 @@ export default function UserProfile() {
               >
                 <div className="flex flex-row justify-between items-center w-full">
                   <h1 className="xsz:text-lg font-poppins font-semibold lg:font-bold md:text-xl xl:text-2xl text-secondary/80">
-                    {" "}
-                    {capitalizeFirstLetter(record.title)}{" "}
+          
+                    {capitalizeFirstLetter(record.title)}
                   </h1>
                   <p className="xsz:text-sm lg:text-base font-poppins font-semibold ">
-                    {" "}
-                    {capitalizeFirstLetter(record.status)}{" "}
+                    
+                    {capitalizeFirstLetter(record.status)}
                   </p>
                 </div>
 
                 <div className="flex xsz:flex-col sm:flex-row sm:justify-center xsz:items-start sm:items-center xsz:gap-4 sm:gap-6 lg:gap-8">
                   <div className="flex flex-col xsz:gap-1 justify-start items-start">
                     <h3 className="xsz:text-[12px] md:text-sm font-poppins font-semibold text-secondary/70">
-                      {" "}
-                      Crime Type{" "}
+                      
+                      Crime Type
                     </h3>
                     <h3 className="xsz:text-sm md:text-base font-poppins font-semibold text-secondary/80">
-                      {" "}
-                      {capitalizeFirstLetter(record.crimeType)}{" "}
+                      
+                      {capitalizeFirstLetter(record.crimeType)}
                     </h3>
                   </div>
 
                   <div className="flex flex-col xsz:gap-1 justify-start items-start">
                     <h3 className="xsz:text-[12px] md:text-sm font-poppins font-semibold text-secondary/70">
-                      {" "}
-                      Criminal Name{" "}
+                      
+                      Criminal Name
                     </h3>
                     <h3 className="xsz:text-sm md:text-base font-poppins font-semibold text-secondary/80">
-                      {" "}
-                      {capitalizeFirstLetter(record.criminalName)}{" "}
+                      
+                      {capitalizeFirstLetter(record.criminalName)}
                     </h3>
                   </div>
 
                   <div className="flex flex-col xsz:gap-1 justify-start items-start">
                     <h3 className="xsz:text-[12px] md:text-sm font-poppins font-semibold text-secondary/70">
-                      {" "}
-                      Location{" "}
+                      
+                      Location
                     </h3>
                     <h3 className="xsz:text-sm md:text-base font-poppins font-semibold text-secondary/80">
-                      {" "}
-                      {capitalizeFirstLetter(record.location)}{" "}
+                      
+                      {capitalizeFirstLetter(record.location)}
                     </h3>
                   </div>
 
                   <div className="flex flex-col xsz:gap-1 justify-start items-start">
                     <h3 className="xsz:text-[12px] md:text-sm font-poppins font-semibold text-secondary/70">
-                      {" "}
-                      Date Created{" "}
+                      
+                      Date Created
                     </h3>
                     <h3 className="xsz:text-sm md:text-base font-poppins font-semibold text-secondary/80">
-                      {" "}
-                      {capitalizeFirstLetter(record.createdAt)}{" "}
+                      
+                      {capitalizeFirstLetter(record.createdAt)}
                     </h3>
                   </div>
                 </div>
@@ -219,8 +220,8 @@ export default function UserProfile() {
                     className="xsz:text-sm lg:text-base font-poppins font-semibold text-white xsz:px-2 xsz:py-1 md:px-3 lg:py-2 xsz:rounded-md hover:rounded-lg hover:scale-105 ease-in duration-100 bg-secondary/90 cursor-pointer active:scale-95"
                     onClick={() => openModal(record)}
                   >
-                    {" "}
-                    View Details{" "}
+                    
+                    View Details
                   </button>
                   <button
                     className="xsz:text-sm lg:text-base font-poppins font-semibold text-white xsz:px-2 xsz:py-1 md:px-3 lg:py-2 xsz:rounded-md hover:rounded-lg hover:scale-105 ease-in duration-100 bg-secondary/90 cursor-pointer active:scale-95"
@@ -233,30 +234,30 @@ export default function UserProfile() {
                 </div>
 
                 {isModalOpen && selectedRecord && (
-                  <div className="fixed bg-black/50 flex justify-center items-center z-20 bg-white xsz:rounded-md lg:rounded-lg shadow xsz:shadow-md lg:shadow-lg xsz:top-40 xl:top-50 left-10 right-10 sm:left-20 sm:right-20 xl:left-30 xl:right-30">
+                  <div className="fixed flex justify-center items-center z-20 bg-white xsz:rounded-md lg:rounded-lg shadow xsz:shadow-md lg:shadow-lg xsz:top-40 xl:top-50 left-10 right-10 sm:left-20 sm:right-20 xl:left-30 xl:right-30">
                     <div className="flex flex-col justify-start items-start xsz:gap-3 xl:gap-5 xsz:p-3 sm:py-4">
                       <div className="flex flex-row justify-between items-center w-full">
                         <h1 className="xsz:text-lg font-poppins font-semibold lg:font-bold md:text-xl xl:text-2xl text-secondary/80">
-                          {" "}
-                          {capitalizeFirstLetter(selectedRecord.title)}{" "}
+                          
+                          {capitalizeFirstLetter(selectedRecord.title)}
                         </h1>
                         <p className="xsz:text-sm lg:text-base font-poppins font-semibold ">
-                          {" "}
-                          {capitalizeFirstLetter(selectedRecord.status)}{" "}
+                         
+                          {capitalizeFirstLetter(selectedRecord.status)}
                         </p>
                       </div>
 
                       <div className="flex xsz:flex-col sm:flex-row sm:justify-center xsz:items-start sm:items-center xsz:gap-4 sm:gap-6 lg:gap-8">
                         <div className="flex flex-col xsz:gap-1 justify-start items-start">
                           <h3 className="xsz:text-[12px] md:text-sm font-poppins font-semibold text-secondary/70">
-                            {" "}
-                            Crime Type{" "}
+                            
+                            Crime Type
                           </h3>
                           <h3 className="xsz:text-sm md:text-base font-poppins font-semibold text-secondary/80">
-                            {" "}
+                            
                             {capitalizeFirstLetter(
                               selectedRecord.crimeType
-                            )}{" "}
+                            )}
                           </h3>
                         </div>
 
@@ -371,6 +372,7 @@ export default function UserProfile() {
             </div>
           </div>
         )}
+        <Footer />
       </div>
     );
 }
